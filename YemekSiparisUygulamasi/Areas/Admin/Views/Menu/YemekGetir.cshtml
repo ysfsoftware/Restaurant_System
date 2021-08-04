@@ -1,0 +1,42 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Menu
+@{
+    ViewBag.Title = "YemekGetir";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Tür Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("YemekGuncelle", "Menu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.ID)
+    <div style="margin-top:15px">
+        @Html.Label("Yemek Adı")
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Yemek Fiyat")
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Yemek Açıklama")
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Yemek Durum")
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Görsel")
+        <input type="file" name="Gorsel" />
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Yemek Tür")
+        @Html.DropDownListFor(k => k.Turid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    </div>
+
+</div>
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

@@ -1,0 +1,36 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Personel Güncelleme</h2>
+<br />
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.LabelFor(x => x.PersonelAd)
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PersonelAd, "", new { @style = "color:red" })
+    <br />
+    @Html.HiddenFor(x => x.PersonelID)
+    @Html.LabelFor(x => x.PersonelSoyad)
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PersonelSoyad, "", new { @style = "color:orange" })
+    <br />
+    @Html.LabelFor(x => x.PersonelTelefon)
+    @Html.TextBoxFor(x => x.PersonelTelefon, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonelMail)
+    @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Unvan)
+    @Html.TextBoxFor(x => x.Unvan, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.PersonelGorsel)
+    <input type="file" name="PersonelGorsel" />
+    <br />
+</div>
+    <button class="btn btn-default" style="background-color:seagreen;color:white">Güncelle</button>
+}

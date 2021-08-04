@@ -1,0 +1,46 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Rezervasyon
+@{
+    ViewBag.Title = "RezervasyonEkle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Rezervasyon Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        @Html.HiddenFor(x => x.RezervasyonID)
+        <div>
+            @Html.Label("Ad")
+            @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Soyad")
+            @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Telefon Numarası")
+            @Html.TextBoxFor(x => x.TelefonNo, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Mail")
+            @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Kişi Sayısı")
+            @Html.TextBoxFor(x => x.KisiSayisi, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.Label("Tarih")
+            <input class="form-control" type="date" name="Tarih" />
+        </div>
+        <div>
+            @Html.Label("Saat")
+            @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+        </div>
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <button class="btn btn-dark">Kaydet</button>
+    </div>
+</form>

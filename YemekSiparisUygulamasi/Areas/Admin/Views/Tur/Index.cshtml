@@ -1,0 +1,25 @@
+﻿@using YemekSiparisUygulamasi.Models.Siniflar
+@model List<Tur>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-hover" style="margin-top:20px; margin-right:20px; margin-left:20px;">
+    <tr>
+        <th>ID</th>
+        <th>Tür Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Ad</td>
+            <td><a href="/Admin/Tur/TurSil/@x.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/Tur/TurGetir/@x.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a class="btn btn-primary" href="/Admin/Tur/TurEkle">Yeni Tür Ekle</a>

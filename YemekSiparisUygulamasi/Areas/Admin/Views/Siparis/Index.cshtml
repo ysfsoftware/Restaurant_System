@@ -1,0 +1,34 @@
+﻿@using YemekSiparisUygulamasi.Models.Siniflar
+@model List<Siparisler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-hover" style="margin-top:20px;">
+    <tr>
+        <th>Tarih</th>
+        <th>Saat</th>
+        <th>Durum</th>
+        <th>Tutar</th>
+        <th>Menü</th>
+        <th>Müşteri</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Tarih</td>
+            <td>@x.Saat</td>
+            <td>@x.Durum</td>
+            <td>@x.ToplamTutar</td>
+            <td>@x.Menu.Ad</td>
+            <td>@x.Musteri.MusteriAd @x.Musteri.MusteriSoyad</td>
+            <td><a href="/Admin/Siparis/SiparisSil/@x.SiparisID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/Siparis/SiparisGetir/@x.SiparisID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+

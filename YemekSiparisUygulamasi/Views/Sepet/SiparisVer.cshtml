@@ -1,0 +1,60 @@
+﻿@using YemekSiparisUygulamasi.Models.Siniflar
+@model List<Sepet>
+@{
+    ViewBag.Title = "SiparisVer";
+    Layout = "~/Views/Shared/_RezervasyonLayout.cshtml";
+}
+
+<div class="modal-header">
+    <h2>Sipariş Ver</h2>
+</div>
+<hr />
+<div class="container">
+    <div class="container">
+        @{ 
+            Context c = new Context();
+            var kadi = User.Identity.Name;
+            var model = c.Musteris.FirstOrDefault(x => x.KullaniciAd == kadi);
+            var adsoyad = model.MusteriAd + "" + model.MusteriSoyad;
+
+        }
+        <h5>Merhaba Sayın <label style="margin-left:1px;"class="text-danger">@adsoyad </label> Sipariş Bilgileriniz:</h5>
+    </div>
+    @using (Html.BeginForm("SiparisVer2", "Sepet", FormMethod.Post, new { @class = "container" }))
+    {
+        foreach (var x in Model)
+        {
+            <div class="form-group">
+                <h5>ID: @x.SepetID</h5>
+            </div>
+            <div class="form-group">
+                <h5>Ürün: @x.Menu.Ad</h5>
+            </div>
+            <div class="form-group">
+                <h5>Müşteri: @x.Musteri.MusteriAd @x.Musteri.MusteriSoyad</h5>
+            </div>
+            <div class="form-group">
+                <h5>Fiyat: @x.Fiyat</h5>
+                <div class="form-group">
+                    <h5>Ürün: @x.Miktar</h5>
+                </div>
+                <div class="form-group">
+                    <h5 class="text-danger">Toplam Tutar: @x.ToplamTutar</h5>
+                </div>
+                <hr />
+            </div>
+        }
+
+        <div class="container">
+            <div><h5 class="text-danger text-center">@ViewBag.Tutar</h5></div>
+            <div class="form-group" style="float:left">
+                <button class="btn btn-success">Onayla</button>
+            </div>
+            <div>
+                <a href="/Sepet/Index" class="btn btn-danger" style="float:right">İptal</a>
+            </div>
+        </div>
+
+
+    }
+</div>

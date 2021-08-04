@@ -1,0 +1,109 @@
+﻿@using YemekSiparisUygulamasi.Models.Siniflar
+@model List<Sepet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_RezervasyonLayout.cshtml";
+}
+<br />
+<h2>Sepetim</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Ürün</th>
+        <th>Fiyat</th>
+        <th>Miktar</th>
+        <th>Toplam Tutar</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Menu.Ad</td>
+            <td>@x.Fiyat</td>
+            <td>
+                <div>
+                    @Html.ActionLink("+", "Arttir", new { id = x.SepetID }, new { @class = "btn btn-secondary btn-sm azalt" })
+                </div>
+                @Html.TextBoxFor(y => x.Miktar, new { @class = "txt", data_id = x.SepetID })
+                <div>
+                    @Html.ActionLink("-", "Azalt", new { id = x.SepetID }, new { @class = "btn btn-info arttir" })
+                </div>
+            </td>
+            <td>@x.ToplamTutar</td>
+            <td><div class="inner-column">@Html.ActionLink("Sil", "Sil", new { id = x.SepetID }, new { @class = "btn btn-lg btn-circle btn-outline-new-white" })</div></td>
+
+        </tr>
+
+    }
+
+
+</table>
+<div class="container" style="margin-left:5px;">@ViewBag.Tutar</div>
+<br>
+<div class="col-lg-6 col-md-6 col-sm-12 text-left">
+    <div class="inner-column">@Html.ActionLink("Sipariş Ver", "SiparisVer", "Sepet", null, new { @class = "btn btn-lg btn-circle btn-outline-new-white" })</div>
+</div>
+<style>
+    .txt {
+        line-height: 18px;
+        width: 60px !important;
+        height: 50px;
+        font-size: 14px;
+        text-align: center;
+        border: solid 1px #ccc;
+        margin-left: 55px;
+    }
+
+    .arttir {
+        display: block;
+        cursor: pointer;
+        width: 5px;
+        background: #e2e2e2;
+        height: 50px;
+        border: solid 1px #ccc;
+        text-align: center;
+        line-height: 30px;
+        color: grey;
+        font-size: 18px;
+        position: absolute;
+        margin-top: -50px;
+    }
+
+    .azalt {
+        display: block;
+        cursor: pointer;
+        width: 25px;
+        background: #e2e2e2;
+        height: 50px;
+        border: solid 1px #ccc;
+        text-align: center;
+        line-height: 30px;
+        color: grey;
+        font-size: 18px;
+        position: absolute;
+        margin-left: 110px;
+    }
+</style>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+        $('.txt').on('change', function () {
+            var miktar = $(this).val();
+            var sepetid = $(this).attr('data-id');
+            alert("SepetID=" + sepetid + " Miktar=" + miktar);
+            $.ajax({
+                url: '/Sepet/DinamikMiktar',
+                data: { id: sepetid, miktari=miktar },
+                success: function (res) {
+                    document.location.reload();
+                }
+            });
+        });
+    });
+</script>
+<br />
+<br />
+<br />
+<br />
+

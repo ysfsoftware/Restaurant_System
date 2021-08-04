@@ -1,0 +1,31 @@
+﻿@using YemekSiparisUygulamasi.Models.Siniflar
+@model List<Fatura>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-hover" style="margin-top:20px;">
+    <tr>
+
+
+        <th>Tarih</th>
+        <th>Sipariş</th>
+        <th>Toplam Tutar</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Tarih</td>
+            <td>@k.Siparisler.Menu.Ad</td>
+            <td>@k.ToplamTutar ₺</td>
+            <td><a href="/Admin/Fatura/FaturaGetir/@k.FaturaID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Admin/Fatura/FaturaDetay/@k.FaturaID" class="btn btn-default" style="background-color:cadetblue;color:white">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Admin/Fatura/FaturaEkle/" class="btn btn-info">Yeni Fatura Girişi</a>
+<br />
+<br />

@@ -1,0 +1,45 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Personel
+    @{
+        ViewBag.Title = "PersonelEkle";
+        Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <br />
+    <h2>Yeni Personel Ekleme Sayfası</h2>
+    <br />
+    @using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+<form class="form-group" method="post">
+    @Html.HiddenFor(x => x.PersonelID)
+    <div style="margin-top:15px">
+        @Html.Label("Ad")
+        @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Soyad")
+        @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Telefon")
+        @Html.TextBoxFor(x => x.PersonelTelefon, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Mail")
+        @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Ünvan")
+        @Html.TextBoxFor(x => x.Unvan, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Durum")
+        @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.Label("Görsel")
+        <input type="file" name="PersonelGorsel" />
+    </div>
+    <br />
+    <button class="btn btn-dark">Kaydet</button>
+</form>
+    }

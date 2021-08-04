@@ -1,0 +1,34 @@
+﻿@using YemekSiparisUygulamasi.Models.Siniflar
+@model List<Siparisler>
+    @{
+        ViewBag.Title = "Siparislerim";
+        Layout = "~/Views/Shared/_RezervasyonLayout.cshtml";
+    }
+
+
+    <br />
+    <h2>Siparişlerim</h2>
+    <br />
+    <table class="table table-hover">
+        <tr>
+            <th>Müşteri</th>
+            <th>Tarih</th>
+            <th>Saat</th>
+            <th>Durum</th>
+            <th>Sepet</th>
+            <th>Toplam Tutar</th>
+
+        </tr>
+        @foreach (var x in Model)
+        {
+    <tr>
+        <td>@x.Musteri.MusteriAd @x.Musteri.MusteriSoyad</td>
+        <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
+        <td>@x.Saat</td>
+        <td>@x.Durum</td>
+        <td>@x.Sepet.Menu.Ad</td>
+        <td>@x.ToplamTutar</td>
+    </tr>
+        }
+    </table>
+

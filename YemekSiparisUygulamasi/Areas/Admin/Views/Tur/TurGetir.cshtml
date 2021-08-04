@@ -1,0 +1,18 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Tur
+@{
+    ViewBag.Title = "TurGetir";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Tür Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("TurGuncelle", "Tur", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ID)
+        @Html.Label("Tür Adı")
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

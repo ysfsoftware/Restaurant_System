@@ -1,0 +1,32 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Yorum
+@{
+    ViewBag.Title = "YorumDetay";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yorum Detay Sayfası</h2>
+<br />
+
+<div class="form-group">
+    @Html.Label("Ad")
+    @Html.TextBoxFor(x => x.Musteri.MusteriAd, new { @class = "form-control" })
+    <br />
+    @Html.HiddenFor(x => x.YorumID)
+    @Html.Label("Soyad")
+    @Html.TextBoxFor(x => x.Musteri.MusteriSoyad, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x => x.Musteri.MusteriMail, new { @class = "form-control" })
+    <br />
+    @Html.Label("Cinsiyet")
+    @Html.TextBoxFor(x => x.Musteri.Cinsiyet, new { @class = "form-control" })
+    <br />
+    @Html.Label("Şehir")
+    @Html.TextBoxFor(x => x.Musteri.MusteriSehir, new { @class = "form-control" })
+    <br />
+
+
+    <br />
+</div>
+

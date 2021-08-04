@@ -1,0 +1,31 @@
+﻿@using YemekSiparisUygulamasi.Models.Siniflar
+@model List<Musteri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<table class="table table-hover" style="margin-top:20px;">
+    <tr>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Cinsiyet</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@x.MusteriAd</td>
+    <td>@x.MusteriSoyad</td>
+    <td>@x.Cinsiyet</td>
+    <td>@x.MusteriSehir</td>
+    <td>@x.MusteriMail</td>
+    <td><a href="/Admin/Musteri/MusteriSil/@x.MusteriID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Admin/Musteri/MusteriGetir/@x.MusteriID" class="btn btn-warning">Güncelle</a></td>
+</tr>
+    }
+</table>
+
+

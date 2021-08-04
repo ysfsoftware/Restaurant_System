@@ -1,0 +1,38 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Sepet
+@{
+    ViewBag.Title = "SiparisVer";
+    Layout = "~/Views/Shared/_RezervasyonLayout.cshtml";
+}
+
+<div class="modal-header">
+    <h2>Sipariş Ver</h2>
+</div>
+<div class="container">
+    @using (Html.BeginForm("SiparisVer2", "Siparis", FormMethod.Post))
+    {
+    <div class="modal-body">
+        @Html.HiddenFor(x => x.SepetID)
+
+        <div class="modal-footer">
+            Ad Soyad:@Html.DisplayFor(x => x.Musteri.MusteriAd, new { @class = "form-control" })
+        </div>
+        <div class="modal-footer">
+            Ürün:@Html.DisplayFor(x => x.Menu.Ad, new { @class = "form-control" })
+        </div>
+        <div class="modal-footer">
+            Birim Fiyat:@Html.DisplayFor(x => x.Fiyat, new { @class = "form-control" })
+        </div>
+        <div class="modal-footer">
+            Miktar:@Html.DisplayFor(x => x.Miktar, new { @class = "form-control" })
+        </div>
+        <div class="modal-footer">
+            Toplam Tutar:@Html.DisplayFor(x => x.ToplamTutar, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="modal-footer" style="float:right">
+        <button class="btn btn-success">Siparişi Onayla</button>
+        <a href="/Sepet/Index" class="btn btn-danger">Çıkış</a>
+    </div>
+    }
+</div>
+

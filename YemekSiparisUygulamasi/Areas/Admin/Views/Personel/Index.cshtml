@@ -1,0 +1,36 @@
+﻿@using YemekSiparisUygulamasi.Models.Siniflar
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<table class="table table-hover" style="margin-top:20px;">
+    <tr>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Görsel</th>
+        <th>Telefon</th>
+        <th>Mail</th>
+        <th>Ünvan</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@x.PersonelAd</td>
+    <td>@x.PersonelSoyad</td>
+    <td>
+        <img src="@x.PersonelGorsel" style="width:100px;" height="50px;" data-toggle="modal" data-target="#Modal1" />
+    </td>
+    <td>@x.PersonelTelefon</td>
+    <td>@x.PersonelMail</td>
+    <td>@x.Unvan</td>
+    <td>@x.Durum</td>
+    <td><a href="/Admin/Personel/PersonelSil/@x.PersonelID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Admin/Personel/PersonelGetir/@x.PersonelID" class="btn btn-warning">Güncelle</a></td>
+</tr>
+    }
+</table>
+<a href="/Admin/Personel/PersonelEkle/" class="btn btn-primary">Ekle</a>

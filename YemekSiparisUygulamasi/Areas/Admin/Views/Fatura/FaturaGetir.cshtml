@@ -1,0 +1,27 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Fatura
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Fatura Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post))
+{
+    <div class="form-group">
+        <br />
+        @Html.HiddenFor(x => x.FaturaID)
+        <br />
+        @Html.LabelFor(x => x.Tarih)
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Siparisid)
+        @Html.TextBoxFor(x => x.Siparisid, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.ToplamTutar)
+        @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-default" style="background-color:seagreen;color:white">Güncelle</button>
+}
+

@@ -1,0 +1,19 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Tur
+@{
+    ViewBag.Title = "TurEkle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Tür Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        @Html.HiddenFor(x=>x.ID)
+        @Html.Label("Tür Adı")
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <br />
+    <div style="margin-top:15px">
+        <button class="btn btn-dark">Kaydet</button>
+    </div>
+</form>

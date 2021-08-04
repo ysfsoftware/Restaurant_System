@@ -1,0 +1,40 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Siparisler
+@{
+    ViewBag.Title = "SiparisGetir";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Rezervasyon Güncelleme</h2>
+<br />
+@using (Html.BeginForm("SiparisGuncelle", "Siparis", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(x => x.Tarih)
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    @Html.HiddenFor(x => x.SiparisID)
+    @Html.LabelFor(x => x.Saat)
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Durum)
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ToplamTutar)
+    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Menu)
+    @Html.DropDownListFor(k => k.Menuid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Musteri)
+    @Html.DropDownListFor(k => k.Musteriid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+
+    <br />
+</div>
+    <button class="btn btn-default" style="background-color:seagreen;color:white">Güncelle</button>
+}
+
+
+
+
+

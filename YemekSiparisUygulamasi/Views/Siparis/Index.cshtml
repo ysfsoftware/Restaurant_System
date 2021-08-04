@@ -1,0 +1,32 @@
+﻿@model List<YemekSiparisUygulamasi.Models.Siniflar.Siparisler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_RezervasyonLayout.cshtml";
+}
+
+<h2>Sipariş Listesi</h2>
+<table class="table-hover">
+    <tr>
+        <th>Ad Soyad</th>
+        <th>Tarih</th>
+        <th>Saat</th>
+        <th>Menü</th>
+        <th>Fiyat</th>
+        <th>Miktar</th>
+        <th>Tutar</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+    <tr>
+        <td>@x.Musteri.MusteriAd @x.Musteri.MusteriSoyad</td>
+        <td>@x.Tarih</td>
+        <td>@x.Saat</td>
+        <td>@x.Sepet.Menu.Ad</td>
+        <td>@x.Sepet.Fiyat</td>
+        <td>@x.Sepet.Miktar</td>
+        <td>@x.Sepet.ToplamTutar</td>
+        <td>@x.ToplamTutar</td>
+    </tr>
+    }
+</table>

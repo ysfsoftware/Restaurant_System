@@ -1,0 +1,27 @@
+﻿@using YemekSiparisUygulamasi.Models.Siniflar
+@model List<Yorum>
+@{
+    ViewBag.Title = "Yorumlar";
+    Layout = "~/Views/Shared/_RezervasyonLayout.cshtml";
+}
+
+<br />
+<h2>Yorumlarım</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Yorum</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Musteri.MusteriAd</td>
+            <td>@x.Musteri.MusteriSoyad</td>
+            <td>@x.Aciklama</td>
+        </tr>
+    }
+</table>
+<a href="/Panelim2/YorumYap" class="btn btn-dark" style="margin-top:50px; margin-left:600px;">Yeni Yorum Yap</a>
+

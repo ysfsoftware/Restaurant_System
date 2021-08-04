@@ -1,0 +1,42 @@
+﻿@model YemekSiparisUygulamasi.Models.Siniflar.Rezervasyon
+@{
+    ViewBag.Title = "RezervasyonGetir";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Rezervasyon Güncelleme</h2>
+<br />
+@using (Html.BeginForm("RezervasyonGuncelle", "Rezervasyon", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(x => x.Ad)
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Ad, "", new { @style = "color:red" })
+    <br />
+    @Html.HiddenFor(x => x.RezervasyonID)
+    @Html.LabelFor(x => x.Soyad)
+    @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Soyad, "", new { @style = "color:orange" })
+    <br />
+    @Html.LabelFor(x => x.TelefonNo)
+    @Html.TextBoxFor(x => x.TelefonNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.KisiSayisi)
+    @Html.TextBoxFor(x => x.KisiSayisi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Saat)
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+    <br />
+</div>
+    <button class="btn btn-default" style="background-color:seagreen;color:white">Güncelle</button>
+}
+
+
+
